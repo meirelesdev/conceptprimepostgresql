@@ -1,58 +1,28 @@
 <?php
-
-// CREATE TABLE public.clients
-// (
-//     id serial NOT NULL,
-//     first_name character varying(35)[] NOT NULL,
-//     last_name character varying(35)[] NOT NULL,
-//     zipcode character varying(10)[] NOT NULL,
-//     logradouro character varying(35)[] NOT NULL,
-//     num integer NOT NULL,
-//     neighborhood character varying(35)[] NOT NULL,
-//     complement character varying(20)[],
-//     uf character varying(15)[] NOT NULL,
-//     city character varying(35)[] NOT NULL,
-//     PRIMARY KEY (id)
-// );
-
-// ALTER TABLE public.clients
-//     OWNER to postgres;
 class Sql {
 
     private $conn;
 
-    public function __construct(){
-        
+    public function __construct(){   
         try{
 
             $this->conn =  new PDO("pgsql:host=127.0.0.1;port=5432;dbname=conceptPrime;user=postgres;password=123456");
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
         } catch(PDOException $e){
-            return $e.getMessage();
-
-        }
-        
+            echo $e.getMessage();
+        }        
     }
 
     public function listAll(){
-
-        try{
-            
-            $stmt = $this->conn->query("SELECT * FROM public.clients");            
-
-            if($stmt->rowCount() > 0){
-                
+        try{            
+            $stmt = $this->conn->query("SELECT * FROM public.clients");
+            if($stmt->rowCount() > 0){                
                  $data = $stmt->fetchAll();
-
-                return $data;    
-            }           
-        
+                return $data;
+            }        
         }catch(PDOException $e){
-            
-            return $e->getMessage();
-        }
-        
+            echo $e->getMessage();
+        }        
     }
 
     public function getData($id){
@@ -63,23 +33,17 @@ class Sql {
                 ":ID" => $id
             ));
 
-            
             if($stmt->rowCount() > 0) {
                 $data = $stmt->fetch();
-               
                 return $data;
             }
         }catch(PDOException $e){
-            
-            return $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
-    public function insertData($data){
-
-       
+    public function insertData($data){       
         try{
-
             $stmt = $this->conn->prepare("INSERT INTO clients ( first_name, last_name, zipcode, city, uf, num, complement, neighborhood, logradouro) VALUES (:FIRST_NAME, :LAST_NAME, :ZIPCODE , :CITY , :UF , :NUM , :COMPLEMENT , :NEIGHBORHOOD,:LOGRADOURO)");
                  
             $stmt->bindParam(":FIRST_NAME", $data['first_name']);
@@ -100,10 +64,8 @@ class Sql {
     }
 
     public function updateData($id, $data){
-        
         try {
             $stmt = $this->conn->prepare('UPDATE public.clients SET first_name = :FIRST_NAME, last_name = :LAST_NAME, zipcode = :ZIPCODE, logradouro = :LOGRADOURO, num = :NUM, neighborhood = :NEIGHBORHOOD, uf = :UF, city = :CITY, complement = :COMPLEMENT WHERE id = :ID');
-            
             
             $stmt->bindParam(':ID', $data['id']);
             $stmt->bindParam(':FIRST_NAME', $data['first_name']);
@@ -118,7 +80,6 @@ class Sql {
     
             $stmt->execute();
             return true;
-
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
