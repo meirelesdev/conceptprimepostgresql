@@ -8,15 +8,16 @@ const clearForm = () => {
     $("#input-cep").val("")
 }
 
-$(document).ready(function () {
+$(document).ready( ()=> {
 
     $('.sidenav').sidenav()
 
     $('.collapsible').collapsible()
 
-    $("#input-cep").blur(function () {
-
+    $("#input-cep").blur(function() {
+        
         let cep = $(this).val().replace(/\D/g, '')
+
         if (cep != "") {
 
             let validacep = /^[0-9]{8}$/
@@ -26,16 +27,16 @@ $(document).ready(function () {
                 $("#input-cep").val(cep)
                 $("#street").val("Buscando dados...")
                 $("#neighborhood").val("Buscando dados...")
-                $("#complement").val("")
+                $("#complement").val("Buscando dados...")
                 $("#city").val("Buscando dados...")
                 $("#state").val("Buscando dados...")
 
                 let url = "https://viacep.com.br/ws/"
 
                 $.getJSON(url + cep + "/json/", function (dados) {
-
+                    
                     if (!("erro" in dados)) {
-
+                        $("#complement").val("")
                         $("#street").val(dados.logradouro)
                         $("#neighborhood").val(dados.bairro)
                         $("#city").val(dados.localidade)
@@ -55,5 +56,4 @@ $(document).ready(function () {
             clearForm()
         }
     })
-
 })

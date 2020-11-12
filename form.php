@@ -21,7 +21,7 @@ if($id){
     </head>
 <body>
     <header>
-    <nav class="nav-extended">
+    <nav class="nav-extended light-blue darken-4">
     <div class="nav-wrapper">
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -33,13 +33,13 @@ if($id){
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="/">Listar Clientes</a></li>
-    <li><a href="/form.php">Cadastrar Cliente</a></li>
+    <li><a class="white-text light-blue darken-4" href="/"><i class="material-icons prefix">format_list_bulleted</i>Listar Clientes</a></li>
+    <li><a class="white-text light-blue darken-4" href="/form.php"><i class="material-icons prefix">library_add</i>Cadastrar Cliente</a></li>
   </ul>
     </header>
-    <div class="container">
+    <div class="container z-depth-1">
 
-        <h3>
+        <h3 class="teal-text lighten-1-text">
             <?php if($id){
             echo "Editar Cadastro";
         } else{
@@ -52,18 +52,19 @@ if($id){
                 <div class="row">
                     <div class="col s12">
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 m6">
                             <input type="text" name="first_name" id="first_name"  required  class="validate" value="<?php echo $cliente['first_name'] ??''; ?>">
                               <label for="first_name">Nome</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 m6">
                             <input type="text" name="last_name" id="last_name"  required  class="validate" value="<?php echo $cliente['last_name'] ?? ''; ?>">
                               <label for="last_name">Sobrenome</label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s10 m3">
                                 <i class="material-icons prefix">location_on</i>
+                            
                                 <input type="text" required name="zipcode"  id="input-cep" class="validate"  value="<?php echo $cliente['zipcode']?? ''; ?>">
                                 <label for="input-cep">CEP</label>
                             </div>
@@ -79,7 +80,7 @@ if($id){
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s8">
+                            <div class="input-field col s12">
                                 <input type="text"  name="complement" id="complement" class="validate" value="<?php echo $cliente['complement'] ??''; ?>">
                                 <label for="complement">Complemento</label>
                             </div>

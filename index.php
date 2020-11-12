@@ -12,7 +12,7 @@ $cadastros = $sql->listAll();
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,24 +25,28 @@ $cadastros = $sql->listAll();
     </head>
 <body>
     <header>
-    <nav class="nav-extended">
+    <nav class="nav-extended light-blue darken-4">
     <div class="nav-wrapper">
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/index.php">Listar Clientes</a></li>
+        <li>
+        <a href="/index.php">Listar Clientes</a></li>
         <li><a href="/form.php">Cadastrar Cliente</a></li>
       </ul>
     </div>
     
   </nav>
 
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="/index.php">Listar Clientes</a></li>
-    <li><a href="/form.php">Cadastrar Cliente</a></li>
+  <ul class="sidenav " id="mobile-demo">
+    <li class="">
+        <a class="white-text light-blue darken-4" href="/index.php"><i class="material-icons prefix">format_list_bulleted</i>Listar Clientes</a>
+    </li>
+    <li ><a class="white-text light-blue darken-4 " href="/form.php">
+    <i class="material-icons prefix">library_add</i> Cadastrar Cliente</a></li>
   </ul>
     </header>
-    <div class="container">
-        <h3>Lista de Clientes</h3>
+    <div class="container z-depth-1">
+        <h3 class="teal-text lighten-1-text">Lista de Clientes</h3>
         <ul class="collapsible popout">
             <?php 
             if($cadastros){
