@@ -55,6 +55,7 @@ $cadastros = $sql->listAll();
                     </div>
                     <div class="collapsible-body">
                         <h4>Endereço</h4>
+                        <p>Cep: <?php echo $cadastro['zipcode'] ??"Não Informado";?></p>
                         <p> <?php echo $cadastro['logradouro'] ??"Não Informado";?></p>
                         <p>Numero: <?php echo $cadastro['num'] ??"Não Informado";?></p>
                         <p>Complemento: <?php echo $cadastro['complement'] ??"Não Informado";?></p>
@@ -65,7 +66,7 @@ $cadastros = $sql->listAll();
                             <a class="btn-floating blue" href="form.php?id=<?php echo $cadastro['id']; ?>">
                                 <i class="material-icons">edit</i>
                             </a>
-                            <a class="btn-floating red" href="/index.php?id=<?php echo $cadastro['id']; ?>">
+                            <a class="btn-floating red" href="/?id=<?php echo $cadastro['id']; ?>">
                                 <i class="material-icons">delete_forever</i>
                             </a>
                         </div>

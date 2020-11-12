@@ -27,7 +27,7 @@ $dataOk = false;
        if($dataOk){
             $sql = new Sql();        
             $sql = $sql->updateData($id, $data);
-            header("Location: index.php ");
+            header("Location: / ");
             exit;
         }        
     }
@@ -41,7 +41,7 @@ $dataOk = false;
         header("Location: /");
         exit;
     }
-header("Location: form.php");
+header("Location: / form.php");
 exit;
 
 ?>
