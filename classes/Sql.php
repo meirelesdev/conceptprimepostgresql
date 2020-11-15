@@ -5,7 +5,6 @@ class Sql {
 
     public function __construct(){   
         try{
-
             $this->conn =  new PDO("pgsql:host=127.0.0.1;port=5432;dbname=conceptPrime;user=postgres;password=123456");
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(PDOException $e){

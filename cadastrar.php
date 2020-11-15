@@ -6,7 +6,7 @@ $data = [
     'first_name' => filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS),
     'last_name' => filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS),
     'zipcode' => filter_input(INPUT_POST, 'zipcode'),
-    'logradouro' => filter_input(INPUT_POST, 'logradouro'),
+    'logradouro' => filter_input(INPUT_POST, 'street'),
     'num' => filter_input(INPUT_POST, 'num', FILTER_VALIDATE_INT),
     'neighborhood' => filter_input(INPUT_POST, 'neighborhood', FILTER_SANITIZE_SPECIAL_CHARS),
     'uf' => filter_input(INPUT_POST, 'uf'),
@@ -15,6 +15,7 @@ $data = [
 ];
 $hasID = false;
 $dataOk = false;
+
     foreach($data as $key => $value){
         if($key == 'id' && $value > 0){
             $hasID = true;

@@ -47,13 +47,13 @@ if($id){
         }
             
             ?></h3>
-        <form action="cadastrar.php" method="POST" >
+        <form action="cadastrar.php" method="POST" id="formAdd">
             <input type="number" name="id" value="<?php echo $cliente['id']; ?>" hidden>
                 <div class="row">
                     <div class="col s12">
                         <div class="row">
                             <div class="input-field col s12 m6">
-                            <input type="text" name="first_name" id="first_name"  required  class="validate" value="<?php echo $cliente['first_name'] ??''; ?>">
+                            <input type="text"  name="first_name" id="first_name"  required  class="validate" value="<?php echo $cliente['first_name'] ??''; ?>">
                               <label for="first_name">Nome</label>
                             </div>
                             <div class="input-field col s12 m6">
@@ -65,18 +65,18 @@ if($id){
                             <div class="input-field col s10 m3">
                                 <i class="material-icons prefix">location_on</i>
                             
-                                <input type="text" required name="zipcode"  id="input-cep" class="validate"  value="<?php echo $cliente['zipcode']?? ''; ?>">
-                                <label for="input-cep">CEP</label>
+                                <input type="text" required name="zipcode"  id="zipcode" class="validate"  value="<?php echo $cliente['zipcode']?? ''; ?>">
+                                <label for="zipcode">CEP</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s9">
-                                <input type="text" required  name="logradouro" id="street"  class="validate" value="<?php echo $cliente['logradouro']?? ''; ?>">
+                                <input type="text" required  name="street" id="street"  class="validate" value="<?php echo $cliente['logradouro']?? ''; ?>">
                                 <label for="street">Logradouro</label>
                             </div>
                             <div class="input-field col s3">
-                                <input type="text" name="num" id="number"  required id="number" class="validate" value="<?php echo $cliente['num'] ??''; ?>">
-                                <label for="number">Nº</label>
+                                <input type="text" name="num" id="num"  required  class="validate" value="<?php echo $cliente['num'] ??''; ?>">
+                                <label for="num">Nº</label>
                             </div>
                         </div>
                         <div class="row">
@@ -102,8 +102,14 @@ if($id){
                             </div>
                         </div>
                     </div>
-                <div class="row">
-                    <button class="btn waves-effect waves-light"  type="submit" name="action">Cadastrar
+                <div class="row ">
+                    <button class="btn waves-effect waves-right"  type="submit" name="action">
+                    <?php if($id){
+                                echo "Salvar Alterações";
+                            } else{
+                                echo "Cadastrar";
+                            }
+                     ?>
                 <i class="material-icons right">send</i>
                 </button>
                 </div>

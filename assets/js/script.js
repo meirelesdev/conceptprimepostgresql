@@ -3,28 +3,35 @@ const clearForm = () => {
     $("#neighborhood").val("")
     $("#city").val("")
     $("#state").val("")
-    $("#number").val("")
+    $("#num").val("")
     $("#complement").val("")
-    $("#input-cep").val("")
+    $("#zipcode").val("")
 }
 
-$(document).ready( ()=> {
+const checkInput = (e)=>{
+    let inputName = e.target.name
+    let label = $("label[for=" + inputName + "]").html()
+    
+    let toast = '<span class="white-text">O Campo ' + label + ' esta Vazio!</span><button class="btn-flat toast-action">Undo</button>'
 
-    $('.sidenav').sidenav()
+    if(!e.target.value){
+            M.toast({html: toast, classes: 'red'})
+    }
+}
 
-    $('.collapsible').collapsible()
-
-    $("#input-cep").blur(function() {
+const searchcep = (e) =>{
         
-        let cep = $(this).val().replace(/\D/g, '')
+        let cep = e.target.value
 
+        cep = cep.replace(/\D/g, '')
+        
         if (cep != "") {
 
             let validacep = /^[0-9]{8}$/
 
             if (validacep.test(cep)) {
 
-                $("#input-cep").val(cep)
+                $("#zipcode").val(cep)
                 $("#street").val("Buscando dados...")
                 $("#neighborhood").val("Buscando dados...")
                 $("#complement").val("Buscando dados...")
@@ -44,16 +51,35 @@ $(document).ready( ()=> {
 
                     } else {
                         clearForm()
-                        alert("CEP não encontrado.")
+                        let msg = '<span class="white-text">"CEP não encontrado!</span><button class="btn-flat toast-action">Undo</button>'
+                        M.toast({html: msg, classes: 'red'})
+                    
                     }
                 })
             } else {
                 clearForm()
-                alert("Formato de CEP inválido.")
+                let msg = '<span class="white-text">"CEP não encontrado!</span><button class="btn-flat toast-action">Undo</button>'
+                M.toast({html: msg, classes: 'red'})
             }
         }
         else {
             clearForm()
+            let msg = '<span class="white-text">"CEP Invalido!</span><button class="btn-flat toast-action">Undo</button>'
+                M.toast({html: msg, classes: 'red'})
         }
-    })
+}
+$(document).ready( ()=> {
+
+    $('#first_name').blur(checkInput)
+    $('#last_name').blur(checkInput)
+    $('#zipcode').blur(checkInput)
+    $('#city').blur(checkInput)
+    $('#street').blur(checkInput)
+    $('#state').blur(checkInput)
+    $('#num').blur(checkInput)
+    $('#neighborhood').blur(checkInput)
+    $("#zipcode").blur(searchcep)
+
+    $('.sidenav').sidenav()
+    $('.collapsible').collapsible()
 })

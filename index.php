@@ -1,6 +1,7 @@
 <?php
 require_once("classes/Sql.php");
 $sql = new Sql();
+
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 if($id){
     $sql->deleteData($id);
