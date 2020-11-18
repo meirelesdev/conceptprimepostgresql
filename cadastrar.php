@@ -28,7 +28,7 @@ $dataOk = false;
        if($dataOk){
             $sql = new Sql();        
             $sql = $sql->updateData($id, $data);
-            header("Location: / ");
+            header("Location: index.php");
             exit;
         }        
     }
@@ -36,13 +36,13 @@ $dataOk = false;
         $sql = new Sql();
         $sql = $sql->insertData($data);
         if(!$sql){
-            header("Location: /form.php");
+            header("Location: form.php");
             exit;
         }
-        header("Location: /");
+        header("Location: index.php");
         exit;
     }
-header("Location: / form.php");
+header("Location: form.php");
 exit;
 
 ?>

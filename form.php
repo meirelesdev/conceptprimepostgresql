@@ -17,7 +17,7 @@ if($id){
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css">
     </head>
 <body>
     <header>
@@ -25,16 +25,16 @@ if($id){
     <div class="nav-wrapper">
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/">Listar Clientes</a></li>
-        <li><a href="/form.php">Cadastrar Cliente</a></li>
+        <li><a href="index.php">Listar Clientes</a></li>
+        <li><a href="form.php">Cadastrar Cliente</a></li>
       </ul>
     </div>
     
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a class="white-text light-blue darken-4" href="/"><i class="material-icons prefix">format_list_bulleted</i>Listar Clientes</a></li>
-    <li><a class="white-text light-blue darken-4" href="/form.php"><i class="material-icons prefix">library_add</i>Cadastrar Cliente</a></li>
+    <li><a class="white-text light-blue darken-4" href="index.php"><i class="material-icons prefix">format_list_bulleted</i>Listar Clientes</a></li>
+    <li><a class="white-text light-blue darken-4" href="form.php"><i class="material-icons prefix">library_add</i>Cadastrar Cliente</a></li>
   </ul>
     </header>
     <div class="container z-depth-1">
@@ -116,9 +116,9 @@ if($id){
             </form>
     </div>
     <!--JavaScript at end of body for optimized loading-->
-    <script src="/assets/lib/jquery-3.5.1.min.js"></script>
+    <script src="assets/lib/jquery-3.5.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

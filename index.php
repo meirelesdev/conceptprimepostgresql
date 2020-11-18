@@ -22,7 +22,7 @@ $cadastros = $sql->listAll();
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css">
     </head>
 <body>
     <header>
@@ -31,8 +31,8 @@ $cadastros = $sql->listAll();
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>
-        <a href="/index.php">Listar Clientes</a></li>
-        <li><a href="/form.php">Cadastrar Cliente</a></li>
+        <a href="index.php">Listar Clientes</a></li>
+        <li><a href="form.php">Cadastrar Cliente</a></li>
       </ul>
     </div>
     
@@ -40,9 +40,9 @@ $cadastros = $sql->listAll();
 
   <ul class="sidenav " id="mobile-demo">
     <li class="">
-        <a class="white-text light-blue darken-4" href="/index.php"><i class="material-icons prefix">format_list_bulleted</i>Listar Clientes</a>
+        <a class="white-text light-blue darken-4" href="index.php"><i class="material-icons prefix">format_list_bulleted</i>Listar Clientes</a>
     </li>
-    <li ><a class="white-text light-blue darken-4 " href="/form.php">
+    <li ><a class="white-text light-blue darken-4 " href="form.php">
     <i class="material-icons prefix">library_add</i> Cadastrar Cliente</a></li>
   </ul>
     </header>
@@ -71,7 +71,7 @@ $cadastros = $sql->listAll();
                             <a class="btn-floating blue" href="form.php?id=<?php echo $cadastro['id']; ?>">
                                 <i class="material-icons">edit</i>
                             </a>
-                            <a class="btn-floating red" href="/?id=<?php echo $cadastro['id']; ?>">
+                            <a class="btn-floating red" href="index.php?id=<?php echo $cadastro['id']; ?>">
                                 <i class="material-icons">delete_forever</i>
                             </a>
                         </div>
@@ -90,11 +90,11 @@ $cadastros = $sql->listAll();
         </ul>
     </div>
     <!--JavaScript at end of body for optimized loading-->
-<script src="/assets/lib/jquery-3.5.1.min.js"></script>
+<script src="assets/lib/jquery-3.5.1.min.js"></script>
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="/assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 
 </html>
